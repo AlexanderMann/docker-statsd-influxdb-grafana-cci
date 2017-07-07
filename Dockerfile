@@ -1,3 +1,3 @@
 FROM samuelebistoletti/docker-statsd-influxdb-grafana:2.0.0
 
-ADD ./telegraf/ /telegraf
+COPY telegraf/telegraf.conf /etc/telegraf/telegraf.conf
