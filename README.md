@@ -19,3 +19,43 @@ See [here](https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana) 
       - '22022:22'
       - '8125:8125/udp'
 ```
+
+-----
+
+# Copied Almost Verbatim from Samuele Bistoletti's README
+
+-----
+# Getting Started
+
+If using `docker-compose`, follow the standard workflow of `docker-compose up -d --build` etc.
+
+Once your container is up and running, send a few DataDog tagged stats to it and follow the instructions below!
+
+## Grafana
+
+Open <http://localhost:3003>
+
+```
+Username: root
+Password: root
+```
+
+### Add data source on Grafana
+
+1. Using the wizard click on `Add data source`
+2. Choose a `name` for the source and flag it as `Default`
+3. Choose `InfluxDB` as `type`
+4. Choose `direct` as `access`
+5. Fill remaining fields as follows and click on `Add` without altering other fields
+
+```
+Url: http://localhost:8086
+Database:	telegraf
+User: telegraf
+Password:	telegraf
+```
+
+## Add a Dashboard/Graph
+You can now start exploring the values capture by Telegraf in Grafana by creating a dashboard, and a graph!
+
+<img width="1290" alt="screen shot 2017-07-07 at 19 37 39" src="https://user-images.githubusercontent.com/3885029/27981066-c7e02644-634b-11e7-86cb-e81c7e48e4cf.png">
